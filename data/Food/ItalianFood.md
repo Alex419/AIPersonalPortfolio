@@ -112,3 +112,11 @@ Italian cuisine has ancient roots, influenced by various civilizations:
 * **Renaissance (15th-16th Century):** Culinary sophistication grew, especially in wealthy city-states. The "New World" discovery brought transformative ingredients like **tomatoes, potatoes, corn, and peppers** – which were gradually integrated into Italian cooking over centuries (tomatoes, for example, took until the late 17th century to become widespread).
 * **Unification (19th Century):** Despite political unification, strong regional culinary traditions persisted. The idea of a single "Italian cuisine" is somewhat modern, evolving through emigration (e.g., Italian-American cuisine, which adapted dishes like spaghetti and meatballs).
 * **Modern Day:** Italian cuisine continues to be celebrated for its commitment to fresh, quality ingredients and time-honored techniques, while also embracing contemporary interpretations.
+
+
+
+How to make italian dumplings
+
+Use dough
+let it rise
+fry them
