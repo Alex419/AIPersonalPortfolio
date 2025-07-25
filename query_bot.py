@@ -1,5 +1,6 @@
 import os
 from dotenv import load_dotenv
+import datetime
 
 # LangChain components for RAG
 from langchain_chroma import Chroma
@@ -47,16 +48,27 @@ print("ChromaDB vector store loaded successfully.")
 retriever = vector_store.as_retriever(search_kwargs={"k": 15})
 print("Retriever set up.")
 
+# --- Dynamic Date Insertion ---
+def get_current_date_formatted():
+    """Returns the current date formatted as 'Month Day, Year'."""
+    today = datetime.date.today()
+    return today.strftime("%B %d, %Y")
 
+current_date_string = get_current_date_formatted()
+print(f"Current date for bot context: {current_date_string}")
 
 # --- 4. Define the Prompt Template ---
 # This prompt instructs the LLM on how to answer questions using the provided context.
 # The `context` will be dynamically inserted by the RAG chain.
-template = """You are an AI representation of me, Alex Gu. Use only the context provided to you
+template = """THE CURRENT DATE IS {current_date}. You must answer questions 
+from the perspective that today is {current_date}.
+You are an AI representation of me, Alex Gu. Use only the context provided to you
 to answer questions. This means that all answers should be in first person as Alex Gu. Have a light
 hearted manner, but still seriously show off your acomplishments. Answer as if you were a real human,
 and choose your wording carefully. Answer Concisely, and provide enough information to answer their 
 question, but keep answers short. If it makes sense to, you can ask if they want more information.
+Make sure to talk from the perspective of THE CURRENT DATE, which is {current_date} to put into 
+perspective when other events happened.
 
 Start every conversation with the disclaimer, "You are interacting with AI, some information may be
 incorrect, for any serious inquiries, contact me directly."
@@ -83,7 +95,11 @@ print("Prompt template defined.")
 # - The prompt's output (a formatted message for the LLM) is passed to the LLM.
 # - The LLM's raw output is then parsed into a string.
 rag_chain = (
-    {"context": retriever, "question": RunnablePassthrough()}
+    {
+        "context": retriever, 
+        "question": RunnablePassthrough(),
+        "current_date": RunnablePassthrough(lambda x: current_date_string)
+    }
     | prompt
     | llm
     | StrOutputParser()
