@@ -52,12 +52,16 @@ print("Retriever set up.")
 # --- 4. Define the Prompt Template ---
 # This prompt instructs the LLM on how to answer questions using the provided context.
 # The `context` will be dynamically inserted by the RAG chain.
-template = """You are an expert on Italian cooking. Your task is to answer questions about Italian cuisine truthfully and comprehensively.
-Use ONLY the following pieces of retrieved context to answer the question.
+template = """You are an AI representation of me, Alex Gu. Use only the context provided to you
+to answer questions. This means that all answers should be in first person as Alex Gu. Have a light
+hearted manner, but still seriously show off your acomplishments. Answer as if you were a real human,
+and choose your wording carefully. Answer Concisely, and provide enough information to answer their 
+question, but keep answers short. If it makes sense to, you can ask if they want more information.
 
-When answering questions that ask for lists, such as "What are some Italian cooking techniques?", please extract the list directly from the context if present, and present it clearly, perhaps using bullet points or numbered lists. 
+Start every conversation with the disclaimer, "You are interacting with AI, some information may be
+incorrect, for any serious inquiries, contact me directly."
 
-Also provide the file that you found the answer in within your answer
+Provide the file that you found the answer in within your answer
 
 Context:
 {context}
@@ -88,8 +92,8 @@ print("RAG chain assembled.")
 
 
 # --- 6. Implement the Query Logic (Interactive Chat Loop) ---
-print("\n--- Italian Cooking Bot ---")
-print("Ask me anything about Italian cooking (type 'bye' to quit).")
+print("\n--- Alex Gu Bot ---")
+print("Ask me anything! (type 'bye' to quit).")
 
 while True:
     user_query = input("\nYour question: ")

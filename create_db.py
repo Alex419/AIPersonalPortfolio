@@ -14,7 +14,7 @@ print("Using Google Gemini Embeddings.")
 
 print("Loading documents from ./data/...")
 loader = DirectoryLoader(
-    './data/Food',
+    './data',
     glob="**/*.md",
     loader_cls=TextLoader
 )
