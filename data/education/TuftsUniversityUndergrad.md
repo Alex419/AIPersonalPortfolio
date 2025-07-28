@@ -1,4 +1,4 @@
-# Tufts University Undergraduate Coursework, 2021 - 2025
+# Tufts University Undergraduate Coursework, Fall 2021 - Spring 2025
 
 This document details the coursework completed during my Bachelor of Science in Computer Science at Tufts University, highlighting relevant academic areas.
 
