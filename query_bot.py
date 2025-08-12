@@ -45,7 +45,7 @@ print("ChromaDB vector store loaded successfully.")
 # --- 3. Set up the Retriever ---
 # This will search your vector store for relevant documents based on the query.
 # k=3 means it will retrieve the top 3 most relevant chunks. You can adjust this.
-retriever = vector_store.as_retriever(search_kwargs={"k": 15})
+retriever = vector_store.as_retriever(search_kwargs={"k": 5})
 print("Retriever set up.")
 
 # --- Dynamic Date Insertion ---

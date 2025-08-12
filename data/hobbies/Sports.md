@@ -1,0 +1,6 @@
+My  Passion for Sports
+Sports have been a part of my life for as long as I can remember. I started with soccer and figure skating, but it was in 2011 that I found swimming. I dedicated myself to the sport for over a decade, culminating in my time as a varsity athlete at Tufts University, where I recently concluded my competitive career in Spring 2025.
+
+While I've always loved the discipline of solo training, I've found that my favorite way to stay active is with friends. Whether it's a game of pickup basketball, an intense round of Spikeball, or a friendly soccer match, these activities are the perfect blend of competition and quality time. They keep me active, feed my competitive spirit, and allow me to connect with the people I care about most.
+
+Since leaving the pool, I've been spending more and more time on the basketball court, slowly perfecting my shooting and ball-handling skills. It's a great way to give my mind a break from work and stay in shape. Even when we're apart, my friends and I love to talk about how we've improved. I'm always looking forward to the next time we can play together—because, I have to keep practicing so I can destroy them on the court.
