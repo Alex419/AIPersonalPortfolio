@@ -1,1 +1,0 @@
-Look back at your school applications for the questions and answers.

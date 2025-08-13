@@ -25,8 +25,6 @@ My primary contribution involved rigorously testing the reliability of Bluetooth
 * **Hardware:** Raspberry Pi (x2), Cellular Device
 * **Software/Tools:** Excel (for data analysis), Bluetooth (for signal measurement)
 
----
-
 ### **Learnings & Skill Development**
 This project provided intensive, hands-on experience in scientific research, data collection, and problem-solving, particularly in the context of real-world technological limitations:
 

@@ -4,16 +4,13 @@ Building on my extensive background as a swim instructor, I had the opportunity 
 
 #### Role and Curriculum
 I taught the beginner level of the course, which was designed for students who already had some basic swimming proficiency, such as being able to float and swim short distances. This prerequisite ensured the class could focus on more advanced fundamentals rather than basic water acclimation.
-
 The core curriculum was designed to:
-
 * **Increase Endurance:** I created and adapted swimming sets to improve students' stamina and physical conditioning throughout the semester.
 * **Refine Technique:** I instructed students on proper body positioning, breathing, and other core swimming techniques.
 * **Teach All Four Strokes:** I provided comprehensive instruction on butterfly, backstroke, breaststroke, and freestyle, including flip turns and dives.
 
 #### Teaching Philosophy & Impact
 My approach to teaching is centered on a strong desire to connect with and understand my students. I believe in giving constant, constructive feedback, but I'm careful to deliver it in a way that isn't overwhelming. I learned that focusing on just a few key points at a time is far more effective for my students' learning and progress. This philosophy of prioritizing impactful, concise feedback is a mindset I carry into all my projects and collaborations.
-
 I also maintained an open and receptive stance to feedback on my own teaching methods. By actively soliciting feedback from my students, I was able to continuously improve my instruction and ensure our time was used as productively as possible. This approach demonstrates a commitment to collaboration, efficiency, and continuous improvement in any teaching or team-based role.
 
 ### Skills Developed

@@ -10,7 +10,6 @@ This document details the coursework completed during my Bachelor of Science in 
 
 ## Computer Science & Engineering Courses
 These courses form the core of my Computer Science major, covering fundamental concepts, advanced algorithms, and practical application development.
-
 * **ES 0002 Introduction To Computing In Engineering** (4.0 Credits)
     * *Fall Term 2021*
     * Introduced foundational computing concepts and their application in engineering contexts.
@@ -68,7 +67,6 @@ These courses form the core of my Computer Science major, covering fundamental c
 
 ## Mathematics Courses
 These courses provided a strong foundation in calculus, discrete mathematics, linear algebra, and real analysis, essential for advanced computer science and data-intensive fields.
-
 * **MATH 0032 Calculus I** (4.0 Credits)
     * *Fall Term 2021*
     * Fundamentals of differential calculus, limits, derivatives, and their applications.
@@ -90,7 +88,6 @@ These courses provided a strong foundation in calculus, discrete mathematics, li
 
 ## Science Courses
 Core science courses that complement engineering studies.
-
 * **BIO 0013 Cells & Organisms W/lab** (5.0 Credits, Test Credit)
     * *Test Credits Applied*
     * Introduction to cellular biology and the diversity of life, including laboratory work.
@@ -106,7 +103,6 @@ Core science courses that complement engineering studies.
 
 ## Humanities, Social Sciences & Arts Courses
 A diverse range of courses fostering critical thinking, communication, and a broad understanding of various disciplines.
-
 * **ENG 0001 Expository Writing** (3.0 Credits, Test Credit)
     * *Test Credits Applied*
     * Foundational course in academic writing and argumentation.
@@ -131,7 +127,6 @@ A diverse range of courses fostering critical thinking, communication, and a bro
 
 ## Music Courses & Ensembles
 My involvement in music, including instrumental performance and theory.
-
 * **MUS 0074 Wind Ensemble** (2.0 Credits)
     * *Fall Term 2021, Fall Term 2022*
     * Performance in a collegiate wind ensemble, contributing to musical presentations.
@@ -147,7 +142,6 @@ My involvement in music, including instrumental performance and theory.
 
 ## Innovation & Entrepreneurship Courses
 Courses fostering creative thinking and entrepreneurial principles.
-
 * **EN 0001 Applications in Engineering Innovation in Biomedical Eng** (3.0 Credits)
     * *Fall Term 2021*
     * Practical applications of engineering principles, with a focus on innovation in biomedical engineering.
@@ -157,7 +151,6 @@ Courses fostering creative thinking and entrepreneurial principles.
 
 ## Physical Education & Teaching
 Practical application of skills and teaching experience.
-
 * **PE 0110 Independent Study - Swimming (Beginners) TA** (3.0 Credits)
     * *Spring Term 2025*
     * Independent study credit for assisting in the teaching of beginner swimming lessons, providing instruction and support.

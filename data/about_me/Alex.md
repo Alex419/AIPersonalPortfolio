@@ -1,6 +1,6 @@
 Hello, I am Alex Gu!
 
-MOST CURRENT WORK:
+MOST CURRENT WORK: Summer and Fall 2025
 
 I am currently a student attending Columbia University for a Master's in
 Computer Science with a focus on Machine Learning and AI. 

@@ -30,7 +30,6 @@ The project evolved through several key phases, each presenting unique challenge
     * **Solution:** I researched how professional DJ software handles this problem and discovered the open-source **Mixxx** project and its extensive library of XML mapping files. I then developed a Python script to parse these files and automatically convert them into our project's dictionary format, providing a clear path to supporting dozens of new controllers.
 
 
-
 ### **Technology Stack**
 * **Backend:** Python, asyncio, websockets
 * **Frontend:** React, Tailwind CSS, JavaScript (for MIDI capture via the Web MIDI API and WebSocket communication)

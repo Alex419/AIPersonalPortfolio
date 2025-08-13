@@ -5,9 +5,7 @@ During my summer internship at the Tufts University BCI Lab in Medford, MA, I co
 ## Key Projects & Contributions
 
 ### 1. EEG Study: Chess Game Performance & Brain Signals
-
 This project aimed to explore the correlation between participants' EEG (brain) signals and the quality of their moves in a chess game, contributing to a broader series of studies guiding future BCI research.
-
 * **Objective:** To understand how EEG signals relate to cognitive decision-making during a complex task like chess, specifically to predict future good or bad moves.
 * **My Contribution:**
     * **Data Acquisition:** Assisted in running study participants and collecting incoming brain data directly from a **Muse device**.
@@ -16,9 +14,7 @@ This project aimed to explore the correlation between participants' EEG (brain) 
 * **Skills Applied:** Data Collection, Brain-Computer Interface (BCI) fundamentals, Machine Learning (predictive modeling), Research Methodology, Scientific Literature Review, Python Programming.
 
 ### 2. Eye-Tracking Heat Map Overlay for Environmental Policy & Planning (DEPP)
-
 This collaboration with the Tufts Department of Environmental Policy and Planning (DEPP) focused on identifying areas of interest along campus walking paths through eye-tracking data, with the goal of making these spaces more enjoyable and walkable.
-
 * **Objective:** To visually represent participant eye fixation patterns on images of campus walkways to determine what elements captured their attention most.
 * **My Contribution & Problem-Solving:**
     * **Data Ingestion & Organization:** Faced significant challenges with the raw eye-tracking data being highly inconsistent in format and unorganized, stemming from multiple collection devices with varying dimensions and pixel counts. I undertook a major effort in **data organization and normalization** to ensure comparability across datasets.
@@ -30,12 +26,10 @@ This collaboration with the Tufts Department of Environmental Policy and Plannin
 * **Learnings & Challenges:** This project was a deep dive into practical data cleaning, organization, and normalization in a real-world messy dataset. It highlighted the importance of robust data preprocessing before analysis and visualization. I gained significant experience in visual data representation and adapting techniques to inconsistent data inputs.
 
 ## Technologies Used
-
 * **Languages:** Python
 * **Tools/Libraries:** Muse EEG device, Machine Learning Libraries, Data Visualization Libraries (e.g., Matplotlib, Seaborn for heatmaps), Data Processing Techniques.
 
 ## Skills Developed
-
 * **Research:** Scientific Methodology, Data Acquisition, Literature Review, Experimental Design, Data Interpretation.
 * **Data Science:** Data Cleaning & Normalization, Data Organization, Data Processing, Statistical Analysis, Data Visualization (Heat Maps).
 * **Machine Learning:** Predictive Modeling (EEG signals for chess moves).
