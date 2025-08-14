@@ -69,6 +69,9 @@ class AlexPortfolioDBBuilder:
         # Extract title from content (first header)
         title = self._extract_title_from_content(doc.page_content)
         
+        # Extract time information from content
+        time_info = self._extract_time_information(doc.page_content)
+        
         # Enhanced metadata
         doc.metadata.update({
             'category': category,
@@ -78,10 +81,62 @@ class AlexPortfolioDBBuilder:
             'filename': filename,
             'directory': os.path.dirname(filepath),
             'content_length': len(doc.page_content),
-            'priority_score': self._calculate_priority_score(doc.page_content, is_overview, category)
+            'priority_score': self._calculate_priority_score(doc.page_content, is_overview, category),
+            'time_period': time_info['period'],
+            'year': time_info['year'],
+            'season': time_info['season'],
+            'is_recent': time_info['is_recent']
         })
         
         return doc
+    
+    def _extract_time_information(self, content: str) -> dict:
+        """Extract time information from document content."""
+        content_lower = content.lower()
+        
+        # Default values
+        time_info = {
+            'period': 'unknown',
+            'year': None,
+            'season': None,
+            'is_recent': False
+        }
+        
+        # Extract years (2020-2025)
+        import re
+        year_matches = re.findall(r'\b(202[0-5])\b', content)
+        if year_matches:
+            time_info['year'] = int(max(year_matches))  # Most recent year
+        
+        # Extract seasons
+        seasons = ['summer', 'fall', 'spring', 'winter']
+        for season in seasons:
+            if season in content_lower:
+                time_info['season'] = season
+                break
+        
+        # Determine if recent (2024-2025)
+        if time_info['year'] and time_info['year'] >= 2024:
+            time_info['is_recent'] = True
+        
+        # Create period string
+        if time_info['season'] and time_info['year']:
+            time_info['period'] = f"{time_info['season']} {time_info['year']}"
+        elif time_info['year']:
+            time_info['period'] = str(time_info['year'])
+        elif time_info['season']:
+            time_info['period'] = time_info['season']
+        
+        # Check for specific time indicators
+        if 'summer 2025' in content_lower:
+            time_info.update({
+                'period': 'summer 2025',
+                'year': 2025,
+                'season': 'summer',
+                'is_recent': True
+            })
+        
+        return time_info
     
     def _extract_title_from_content(self, content: str) -> str:
         """Extract title from markdown content."""
@@ -93,8 +148,6 @@ class AlexPortfolioDBBuilder:
             elif line.startswith('## ') and not line.startswith('### '):
                 return line[3:].strip()
         return "Untitled"
-    
-    def _calculate_priority_score(self, content: str, is_overview: bool, category: str) -> float:
         """Calculate priority score for document ranking."""
         score = 1.0
         

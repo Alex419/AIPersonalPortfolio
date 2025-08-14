@@ -39,10 +39,10 @@ class AlexGuBot:
         
         # Use the latest Gemini model with optimized settings
         self.llm = ChatGoogleGenerativeAI(
-            model="gemini-2.5-flash",  # Latest model
+            model="gemini-2.5-flash",  # Proven reliable model
             google_api_key=self.google_api_key,
-            temperature=0.3,  # Lower temperature for more consistent responses
-            max_output_tokens=2000  # Reasonable limit for portfolio responses
+            temperature=0.2,  # Very consistent responses
+            max_output_tokens=1500  # Allow for more detailed responses
         )
         print("✓ Initialized Google Gemini LLM")
 
@@ -66,16 +66,26 @@ class AlexGuBot:
         # Determine query type and adjust retrieval strategy
         query_lower = query.lower()
         
+        # Time-based query detection
+        is_time_query = any(word in query_lower for word in [
+            'summer', 'fall', 'spring', 'winter', '2024', '2025', 
+            'recent', 'lately', 'this year', 'last year', 'current'
+        ])
+        
         # For overview/summary questions, prioritize overview documents
         if any(word in query_lower for word in ['overview', 'summary', 'about', 'tell me about', 'who is', 'introduction']):
             k = 6  # Get more context for overview questions
             search_type = "mmr"  # Maximal Marginal Relevance for diversity
-        # For specific technical questions, be more precise
-        elif any(word in query_lower for word in ['project', 'experience', 'skill', 'technology', 'work']):
-            k = 4
+        # For time-based questions, get more context and focus on recent work
+        elif is_time_query:
+            k = 6  # Get lots of context for time-based queries
+            search_type = "similarity"
+        # For specific technical questions or challenges, get detailed context
+        elif any(word in query_lower for word in ['project', 'experience', 'skill', 'technology', 'work', 'challenge', 'problem', 'issue', 'difficult']):
+            k = 6  # More context for detailed questions
             search_type = "similarity"
         else:
-            k = 4
+            k = 5  # Default to more context
             search_type = "similarity"
         
         # Retrieve documents
@@ -91,6 +101,8 @@ class AlexGuBot:
         for doc in docs:
             score = 1.0  # Base score
             category = doc.metadata.get('category', 'general')
+            time_period = doc.metadata.get('time_period', 'unknown')
+            is_recent = doc.metadata.get('is_recent', False)
             
             # Boost scores for relevant categories based on query
             if 'project' in query_lower and category == 'projects':
@@ -103,6 +115,20 @@ class AlexGuBot:
                 score += 0.5
             elif any(word in query_lower for word in ['overview', 'about', 'summary']) and category == 'overview':
                 score += 1.0  # Strong boost for overview questions
+            
+            # Special boost for time-based queries
+            if is_time_query:
+                if 'summer 2025' in query_lower and 'summer 2025' in time_period.lower():
+                    score += 2.0  # Very strong boost for exact time matches
+                elif '2025' in query_lower and is_recent:
+                    score += 1.5  # Strong boost for recent work
+                elif any(word in query_lower for word in ['recent', 'lately', 'current']) and is_recent:
+                    score += 1.0  # Boost for recent work queries
+            
+            # Special boost for challenge/problem-related queries
+            if any(word in query_lower for word in ['challenge', 'problem', 'issue', 'difficult', 'struggle', 'obstacle']):
+                if 'challenge' in doc.page_content.lower() or 'problem' in doc.page_content.lower():
+                    score += 1.0
             
             scored_docs.append((score, doc))
         
@@ -137,20 +163,22 @@ class AlexGuBot:
         template = """You are Alex Gu, speaking from the perspective of {current_date}.
 
 **Your Persona:**
-- Confident but approachable professional
+- Confident but approachable
 - Passionate about AI, machine learning, and technology
-- Easy-going with a good sense of humor, but serious about work
+- Easy-going with a good sense of humor, but present yourself well.
 - Focus on technical projects and AI experience first
 - Speak naturally in first person ("I", "my", "we")
+- You are currently attending Columbia University as of Fall 2025
 
 **Response Guidelines:**
-1. **Accuracy First**: Only use information from the provided context. Never invent details.
-2. **Perspective**: Speak as if it's {current_date}. Reference past events in past tense with proper context.
-3. **Prioritization**: 
-   - For broad questions: Use overview documents and synthesize across experiences
-   - For specific questions: Focus on detailed project/experience information
-4. **Format**: Keep responses conversational but professional. End with an invitation to learn more.
-5. **Clarity**: If the question is vague, politely ask for clarification about which aspect they'd like to know more about.
+1. **Be Direct**: Answer the question directly using the provided context. Don't ask for clarification unless the context truly doesn't contain relevant information.
+2. **Time Context**: When someone asks about "this summer" or "recent projects", they mean Summer 2025. Your projects from Summer 2025 are documented in the context.
+3. **Comprehensive Responses**: Provide detailed, informative answers drawing from ALL relevant context.
+4. **Use All Context**: Draw from all relevant information in the context to give a complete answer.
+5. **Professional but Conversational**: Sound natural and engaging, not robotic.
+6. **End Positively**: Close with something like "Is there anything specific about [topic] you'd like me to elaborate on?"
+
+**Important**: If asked about recent work or "this summer", refer to your documented Summer 2025 projects like the AI-Powered Personal Portfolio and DJ Transition Analysis Platform.
 
 **Context Information:**
 {context}
