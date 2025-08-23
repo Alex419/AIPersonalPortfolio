@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alex Gu - Digital Echo</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Background Elements -->
+    <div class="background">
+        <div class="flower-field"></div>
+        <div class="atmospheric-particles"></div>
+        <div class="scan-lines"></div>
+    </div>
+
+    <!-- Main Interface -->
+    <div class="main-container">
+        <!-- Header -->
+        <header class="header">
+            <div class="status-indicator">
+                <div class="pulse"></div>
+                <span class="status-text">SYSTEM ACTIVE</span>
+            </div>
+            <div class="timestamp" id="timestamp"></div>
+        </header>
+
+        <!-- Central TV Display -->
+        <div class="tv-container">
+            <div class="tv-frame">
+                <div class="tv-screen">
+                    <!-- Welcome Message -->
+                    <div class="welcome-message" id="welcomeMessage">
+                        <div class="glitch-text">ALEX GU</div>
+                        <div class="subtitle">DIGITAL ECHO v2.1</div>
+                        <div class="connection-status">
+                            <span class="dot"></span>
+                            CONNECTED TO MEMORY CORE
+                        </div>
+                        
+                        <!-- Clear Call to Action -->
+                        <div class="start-chat-prompt">
+                            <div class="prompt-text">CLICK BELOW TO ESTABLISH NEURAL LINK</div>
+                            <div class="input-preview">
+                                <div class="input-placeholder">
+                                    <i class="fas fa-arrow-down"></i>
+                                    <span>Type your question here...</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Chat Interface -->
+                    <div class="chat-interface" id="chatInterface" style="display: none;">
+                        <div class="chat-header">
+                            <div class="user-avatar">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="chat-info">
+                                <div class="chat-title">ALEX GU - AI INTERFACE</div>
+                                <div class="chat-subtitle">Direct neural link established</div>
+                            </div>
+                        </div>
+                        
+                        <div class="chat-messages" id="chatMessages">
+                            <!-- Messages will be added here -->
+                        </div>
+                        
+                        <div class="chat-input-section">
+                            <div class="input-wrapper">
+                                <input type="text" id="chatInput" placeholder="Ask me anything..." class="chat-input">
+                                <button id="sendButton" class="send-button">
+                                    <i class="fas fa-paper-plane"></i>
+                                </button>
+                            </div>
+                            
+                            <div class="suggestion-chips">
+                                <button class="suggestion-chip" onclick="askQuestion('Tell me about your recent projects')">
+                                    <i class="fas fa-rocket"></i>
+                                    Recent Projects
+                                </button>
+                                <button class="suggestion-chip" onclick="askQuestion('What are your technical skills?')">
+                                    <i class="fas fa-code"></i>
+                                    Technical Skills
+                                </button>
+                                <button class="suggestion-chip" onclick="askQuestion('Tell me about your leadership experience')">
+                                    <i class="fas fa-users"></i>
+                                    Leadership
+                                </button>
+                                <button class="suggestion-chip" onclick="askQuestion('What are you studying at Columbia?')">
+                                    <i class="fas fa-graduation-cap"></i>
+                                    Columbia Studies
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- TV Controls -->
+                <div class="tv-controls">
+                    <div class="control-knob"></div>
+                    <div class="control-knob"></div>
+                    <div class="control-knob"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer Info -->
+        <footer class="footer">
+            <div class="system-info">
+                <span class="info-item">MEMORY CORE: ONLINE</span>
+                <span class="info-item">NEURAL LINK: STABLE</span>
+                <span class="info-item">RESPONSE TIME: <span id="responseTime">0ms</span></span>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Audio Visualizer (for future TTS integration) -->
+    <div class="audio-visualizer" id="audioVisualizer" style="display: none;">
+        <div class="visualizer-bar"></div>
+        <div class="visualizer-bar"></div>
+        <div class="visualizer-bar"></div>
+        <div class="visualizer-bar"></div>
+        <div class="visualizer-bar"></div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

@@ -12,6 +12,7 @@ This is a summary of my key technical projects and initiatives, showcasing my sk
     * A web-based platform designed to teach about DJ mixing by deconstructing and visualizing a DJ's performance.
     * The backend is a sophisticated Python data processing pipeline built with custom algorithms to transform raw MIDI signal data from DJ controllers into a clean, human-readable narrative.
     * A React/Tailwind CSS frontend provides a foundation for the future visualization layer, highlighting deep problem-solving skills in backend data processing, software architecture, and solving a complex problem with a combination of different approaches.
+    * Using Firebase to store transition and song data based on user provided input.
 
 * **Cudney Family Apiaries Website** (Summer 2025 - Ongoing)
     * An informational website developed to help a small-batch honey producer expand their business and establish a digital presence.

@@ -7,8 +7,8 @@
     * This role provided valuable experience in navigating a large enterprise codebase, working with robust industry pipelines, and practicing cross-functional collaboration.
 
 * **Research Intern at MIT Media Lab** (May 2023 - September 2023)
-    * A research internship where I developed a novel conversational AI system aimed at mitigating loneliness in older adults.
-    * I was responsible for the end-to-end development of a full-stack application for aidop transcription, which included a React frontend and a Python backend.
+    * A research internship where I developed a conversational AI system aimed at mitigating loneliness in older adults.
+    * I was responsible for the end-to-end development of a full-stack application for audio transcription, which included a React frontend and a Python backend.
     * The system leveraged OpenAI's Whisper engine for transcription and used a custom pipeline built with pydub to solve the problem of speaker diarization.
     * This project highlights proficiency in conversational AI design, API integration, and user-centric problem-solving, particularly in overcoming technical challenges with real-world data.
 
