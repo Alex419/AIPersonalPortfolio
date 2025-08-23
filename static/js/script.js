@@ -1,16 +1,17 @@
-// Chat functionality for dystopian TV interface
-class DystopianChatBot {
+// Divine light orb interface for Alex Gu
+class DivineInterface {
     constructor() {
-        this.chatMessages = document.getElementById('chatMessages');
-        this.chatInput = document.getElementById('chatInput');
+        this.messageDisplay = document.getElementById('messageDisplay');
+        this.messageInput = document.getElementById('messageInput');
         this.sendButton = document.getElementById('sendButton');
-        this.welcomeMessage = document.getElementById('welcomeMessage');
-        this.chatInterface = document.getElementById('chatInterface');
+        this.messageInterface = document.getElementById('messageInterface');
+        this.divineName = document.getElementById('divineName');
+        this.divinePresence = document.getElementById('divinePresence');
         this.isLoading = false;
         this.messageCount = 0;
         
         this.initializeEventListeners();
-        this.initializeAtmosphere();
+        this.initializeDivineInterface();
     }
     
     initializeEventListeners() {
@@ -18,7 +19,7 @@ class DystopianChatBot {
         this.sendButton.addEventListener('click', () => this.sendMessage());
         
         // Send message on Enter key
-        this.chatInput.addEventListener('keypress', (e) => {
+        this.messageInput.addEventListener('keypress', (e) => {
             if (e.key === 'Enter' && !e.shiftKey) {
                 e.preventDefault();
                 this.sendMessage();
@@ -26,111 +27,158 @@ class DystopianChatBot {
         });
         
         // Auto-resize input
-        this.chatInput.addEventListener('input', () => {
-            this.chatInput.style.height = 'auto';
-            this.chatInput.style.height = this.chatInput.scrollHeight + 'px';
+        this.messageInput.addEventListener('input', () => {
+            this.messageInput.style.height = 'auto';
+            this.messageInput.style.height = this.messageInput.scrollHeight + 'px';
         });
         
-        // Start chat when clicking on the input placeholder
-        const inputPlaceholder = document.querySelector('.input-placeholder');
-        if (inputPlaceholder) {
-            inputPlaceholder.addEventListener('click', () => {
-                this.startChat();
-            });
-        }
-        
-        // Also start chat on first input focus
-        this.chatInput.addEventListener('focus', () => {
+        // Start interaction when clicking anywhere
+        document.addEventListener('click', () => {
             if (this.messageCount === 0) {
-                this.startChat();
+                this.startDivineInteraction();
+            }
+        });
+        
+        // Start interaction on first input focus
+        this.messageInput.addEventListener('focus', () => {
+            if (this.messageCount === 0) {
+                this.startDivineInteraction();
             }
         });
     }
     
-    initializeAtmosphere() {
-        // Update timestamp
-        this.updateTimestamp();
-        setInterval(() => this.updateTimestamp(), 1000);
+    initializeDivineInterface() {
+        // Add divine name animations
+        this.addDivineNameAnimations();
         
-        // Add glitch effects
-        this.addGlitchEffects();
+        // Add orb interactions
+        this.addOrbInteractions();
         
-        // Add scan line effect
-        this.addScanLineEffect();
+        // Add divine presence effects
+        this.addDivinePresenceEffects();
     }
     
-    updateTimestamp() {
-        const now = new Date();
-        const timestamp = now.toLocaleString('en-US', {
-            month: 'short',
-            day: '2-digit',
-            year: 'numeric',
-            hour: '2-digit',
-            minute: '2-digit',
-            second: '2-digit',
-            hour12: false
+    addDivineNameAnimations() {
+        // Add subtle hover effect to name
+        this.divineName.addEventListener('mouseenter', () => {
+            this.divineName.style.transform = 'scale(1.02)';
+            this.divineName.style.transition = 'transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
         });
-        document.getElementById('timestamp').textContent = timestamp;
-    }
-    
-    addGlitchEffects() {
-        // Random glitch effects on the TV
-        setInterval(() => {
-            if (Math.random() < 0.1) { // 10% chance every interval
-                this.tvGlitch();
-            }
-        }, 3000);
-    }
-    
-    tvGlitch() {
-        const tvScreen = document.querySelector('.tv-screen');
-        tvScreen.style.filter = 'hue-rotate(90deg) saturate(2)';
-        tvScreen.style.transform = 'skew(1deg, 0deg)';
         
-        setTimeout(() => {
-            tvScreen.style.filter = 'none';
-            tvScreen.style.transform = 'none';
-        }, 200);
-    }
-    
-    addScanLineEffect() {
-        const scanLines = document.querySelector('.scan-lines');
-        setInterval(() => {
-            scanLines.style.animation = 'none';
+        this.divineName.addEventListener('mouseleave', () => {
+            this.divineName.style.transform = 'scale(1)';
+        });
+        
+        // Add divine click effect
+        this.divineName.addEventListener('click', () => {
+            this.divineName.style.transform = 'scale(0.98)';
             setTimeout(() => {
-                scanLines.style.animation = 'scanLineMove 0.1s linear';
-            }, 10);
-        }, 100);
+                this.divineName.style.transform = 'scale(1)';
+            }, 200);
+        });
     }
     
-    startChat() {
-        // Hide welcome message with glitch effect
-        this.welcomeMessage.style.animation = 'glitchOut 0.5s ease-out forwards';
+    addOrbInteractions() {
+        // Add orb response to typing
+        this.messageInput.addEventListener('input', () => {
+            if (this.messageInput.value.length > 0) {
+                this.activateOrb();
+            } else {
+                this.deactivateOrb();
+            }
+        });
         
+        // Add orb response to focus
+        this.messageInput.addEventListener('focus', () => {
+            this.activateOrb();
+        });
+        
+        this.messageInput.addEventListener('blur', () => {
+            if (this.messageInput.value.length === 0) {
+                this.deactivateOrb();
+            }
+        });
+    }
+    
+    addDivinePresenceEffects() {
+        // Add subtle presence animations
+        setInterval(() => {
+            if (Math.random() < 0.1) {
+                this.divinePresence.style.opacity = '0.9';
+                setTimeout(() => {
+                    this.divinePresence.style.opacity = '0.7';
+                }, 300);
+            }
+        }, 8000);
+        
+        // Add orb particle effects
+        const orbParticles = document.querySelector('.orb-particles');
+        if (orbParticles) {
+            setInterval(() => {
+                if (Math.random() < 0.15) {
+                    orbParticles.style.opacity = '0.6';
+                    setTimeout(() => {
+                        orbParticles.style.opacity = '0.4';
+                    }, 400);
+                }
+            }, 6000);
+        }
+    }
+    
+    activateOrb() {
+        // Make orb more active when user is typing
+        const orbCore = document.querySelector('.orb-core');
+        const orbGlow = document.querySelector('.orb-glow');
+        
+        if (orbCore && orbGlow) {
+            orbCore.style.filter = 'blur(30px)';
+            orbGlow.style.opacity = '0.9';
+            orbGlow.style.transform = 'translate(-50%, -50%) scale(1.2)';
+        }
+    }
+    
+    deactivateOrb() {
+        // Return orb to normal state
+        const orbCore = document.querySelector('.orb-core');
+        const orbGlow = document.querySelector('.orb-glow');
+        
+        if (orbCore && orbGlow) {
+            orbCore.style.filter = 'blur(40px)';
+            orbGlow.style.opacity = '0.6';
+            orbGlow.style.transform = 'translate(-50%, -50%) scale(1)';
+        }
+    }
+    
+    startDivineInteraction() {
+        // Fade out divine presence
+        this.divinePresence.classList.add('fade-out');
+        
+        // Show message interface with divine animation
         setTimeout(() => {
-            this.welcomeMessage.style.display = 'none';
-            this.chatInterface.style.display = 'flex';
-            this.chatInterface.style.animation = 'fadeIn 0.5s ease-out';
+            this.messageInterface.classList.add('active');
             
-            // Focus on the input field
-            this.chatInput.focus();
+            // Add divine welcome message
+            this.addDivineMessage("I am listening. What would you like to know about my background, projects, and experience?", 'bot');
             
-            // Add initial bot message
-            this.addMessage("Neural link established. I'm Alex's digital echo. Ask me anything about my background, projects, or experience.", 'bot');
-        }, 500);
+            // Focus on input
+            this.messageInput.focus();
+            
+            // Activate orb
+            this.activateOrb();
+        }, 600);
     }
     
     async sendMessage() {
-        const message = this.chatInput.value.trim();
+        const message = this.messageInput.value.trim();
         if (!message || this.isLoading) return;
         
-        // Add user message to chat
-        this.addMessage(message, 'user');
-        this.chatInput.value = '';
-        this.chatInput.style.height = 'auto';
+        // Add user message
+        this.addDivineMessage(message, 'user');
+        this.messageInput.value = '';
+        this.messageInput.style.height = 'auto';
         
-        // Show loading indicator
-        this.showLoading();
+        // Show divine loading
+        this.showDivineLoading();
         
         try {
             // Send message to backend
@@ -146,325 +194,313 @@ class DystopianChatBot {
             
             if (response.ok) {
                 // Add bot response
-                this.addMessage(data.response, 'bot');
+                this.addDivineMessage(data.response, 'bot');
+                
+                // Add divine response effects
+                this.addDivineResponseEffects();
             } else {
-                // Show error message
-                this.addMessage(`System error: ${data.error}. Neural link may be unstable.`, 'bot');
+                // Show divine error message
+                this.addDivineMessage("I am having a moment. Could you try asking that again?", 'bot');
             }
         } catch (error) {
             console.error('Error:', error);
-            this.addMessage('Neural link disrupted. Please try again.', 'bot');
+            this.addDivineMessage("Something is interfering with our connection. Let me try to reconnect...", 'bot');
         } finally {
-            this.hideLoading();
+            this.hideDivineLoading();
         }
     }
     
-    addMessage(content, sender) {
+    addDivineResponseEffects() {
+        // Add divine name aura effect
+        const nameAura = document.querySelector('.name-aura');
+        if (nameAura) {
+            nameAura.style.opacity = '0.8';
+            nameAura.style.transform = 'translate(-50%, -50%) scale(1.3)';
+            
+            setTimeout(() => {
+                nameAura.style.opacity = '0.4';
+                nameAura.style.transform = 'translate(-50%, -50%) scale(1)';
+            }, 1000);
+        }
+        
+        // Add orb pulse effect
+        const orbCore = document.querySelector('.orb-core');
+        if (orbCore) {
+            orbCore.style.transform = 'translate(-50%, -50%) scale(1.1) rotate(2deg)';
+            
+            setTimeout(() => {
+                orbCore.style.transform = 'translate(-50%, -50%) scale(1) rotate(0deg)';
+            }, 500);
+        }
+        
+        // Add ethereal mist effect
+        const etherealMist = document.querySelector('.ethereal-mist');
+        if (etherealMist) {
+            etherealMist.style.opacity = '0.6';
+            etherealMist.style.transform = 'scale(1.2)';
+            
+            setTimeout(() => {
+                etherealMist.style.opacity = '0.3';
+                etherealMist.style.transform = 'scale(1)';
+            }, 800);
+        }
+        
+        // Add glossy bubble effects
+        this.addGlossyBubbleEffects();
+        
+        // Add interface glow effect
+        this.messageInterface.style.boxShadow = '0 35px 100px rgba(255, 255, 255, 0.5)';
+        
+        setTimeout(() => {
+            this.messageInterface.style.boxShadow = '0 25px 80px rgba(255, 255, 255, 0.3)';
+        }, 1200);
+    }
+    
+    addGlossyBubbleEffects() {
+        // Add glossy highlight sweep to message interface
+        const messageInterface = this.messageInterface;
+        messageInterface.style.animation = 'none';
+        messageInterface.offsetHeight; // Trigger reflow
+        
+        // Create glossy sweep effect
+        const glossySweep = document.createElement('div');
+        glossySweep.style.cssText = `
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.6), transparent);
+            transition: left 1s ease;
+            pointer-events: none;
+            z-index: 1;
+            border-radius: 30px;
+        `;
+        
+        messageInterface.style.position = 'relative';
+        messageInterface.appendChild(glossySweep);
+        
+        // Trigger the sweep
+        setTimeout(() => {
+            glossySweep.style.left = '100%';
+        }, 100);
+        
+        // Remove the element after animation
+        setTimeout(() => {
+            if (glossySweep.parentNode) {
+                glossySweep.remove();
+            }
+        }, 1100);
+        
+        // Add bubble bounce effect
+        messageInterface.style.transform = 'scale(1.05) translateY(-5px)';
+        messageInterface.style.transition = 'transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+        
+        setTimeout(() => {
+            messageInterface.style.transform = 'scale(1) translateY(0)';
+        }, 600);
+    }
+    
+    addDivineMessage(content, sender) {
         this.messageCount++;
         
         const messageDiv = document.createElement('div');
         messageDiv.className = `message ${sender}-message`;
         
-        const avatar = document.createElement('div');
-        avatar.className = 'message-avatar';
-        
-        const icon = document.createElement('i');
-        if (sender === 'bot') {
-            icon.className = 'fas fa-brain';
-        } else {
-            icon.className = 'fas fa-user';
-        }
-        
-        avatar.appendChild(icon);
-        
-        const messageContent = document.createElement('div');
-        messageContent.className = 'message-content';
-        
         const paragraph = document.createElement('p');
         paragraph.textContent = content;
-        messageContent.appendChild(paragraph);
+        messageDiv.appendChild(paragraph);
         
-        messageDiv.appendChild(avatar);
-        messageDiv.appendChild(messageContent);
-        
-        this.chatMessages.appendChild(messageDiv);
+        this.messageDisplay.appendChild(messageDiv);
         
         // Scroll to bottom
         this.scrollToBottom();
         
-        // Add glitch animation for bot messages
-        if (sender === 'bot') {
-            setTimeout(() => {
-                this.addGlitchToMessage(messageDiv);
-            }, 100);
-        }
+        // Add divine entrance animation
+        setTimeout(() => {
+            messageDiv.style.animation = 'messageSlideIn 0.8s ease-out';
+        }, 100);
         
-        // Add message counter effect
-        this.updateMessageCounter();
+        // Add divine hover effect
+        messageDiv.addEventListener('mouseenter', () => {
+            messageDiv.style.transform = 'translateX(8px)';
+            messageDiv.style.transition = 'transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+        });
+        
+        messageDiv.addEventListener('mouseleave', () => {
+            messageDiv.style.transform = 'translateX(0)';
+        });
     }
     
-    addGlitchToMessage(messageDiv) {
-        // Random glitch effect
-        if (Math.random() < 0.3) {
-            messageDiv.style.animation = 'messageGlitch 0.1s ease-in-out';
-            setTimeout(() => {
-                messageDiv.style.animation = '';
-            }, 100);
-        }
-    }
-    
-    updateMessageCounter() {
-        const systemInfo = document.querySelector('.system-info');
-        const messageCounter = systemInfo.querySelector('.message-counter') || 
-            document.createElement('span');
-        
-        if (!messageCounter.classList.contains('message-counter')) {
-            messageCounter.className = 'info-item message-counter';
-            systemInfo.appendChild(messageCounter);
-        }
-        
-        messageCounter.textContent = `MESSAGES: ${this.messageCount}`;
-    }
-    
-    showLoading() {
+    showDivineLoading() {
         this.isLoading = true;
         this.sendButton.disabled = true;
         this.sendButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
         
-        // Add typing indicator with glitch effect
-        const typingDiv = document.createElement('div');
-        typingDiv.className = 'message bot-message typing-indicator';
-        typingDiv.id = 'typingIndicator';
+        // Add divine loading indicator
+        const loadingDiv = document.createElement('div');
+        loadingDiv.className = 'message bot-message loading-message';
+        loadingDiv.id = 'loadingMessage';
         
-        const avatar = document.createElement('div');
-        avatar.className = 'message-avatar';
-        const icon = document.createElement('i');
-        icon.className = 'fas fa-brain';
-        avatar.appendChild(icon);
+        const loadingIndicator = document.createElement('div');
+        loadingIndicator.className = 'loading-indicator';
+        loadingIndicator.innerHTML = `
+            <span>Listening</span>
+            <div class="loading-dots">
+                <div class="loading-dot"></div>
+                <div class="loading-dot"></div>
+                <div class="loading-dot"></div>
+            </div>
+        `;
         
-        const messageContent = document.createElement('div');
-        messageContent.className = 'message-content';
-        messageContent.innerHTML = '<p>Neural processing...</p>';
-        
-        typingDiv.appendChild(avatar);
-        typingDiv.appendChild(messageContent);
-        
-        this.chatMessages.appendChild(typingDiv);
+        loadingDiv.appendChild(loadingIndicator);
+        this.messageDisplay.appendChild(loadingDiv);
         this.scrollToBottom();
         
-        // Add glitch effect to typing indicator
-        setInterval(() => {
-            if (typingDiv.parentNode) {
-                this.addGlitchToMessage(typingDiv);
-            }
-        }, 2000);
+        // Add orb pulse during loading
+        this.activateOrb();
     }
     
-    hideLoading() {
+    hideDivineLoading() {
         this.isLoading = false;
         this.sendButton.disabled = false;
-        this.sendButton.innerHTML = '<i class="fas fa-paper-plane"></i>';
+        this.sendButton.innerHTML = '<i class="fas fa-arrow-up"></i>';
         
-        // Remove typing indicator
-        const typingIndicator = document.getElementById('typingIndicator');
-        if (typingIndicator) {
-            typingIndicator.remove();
+        // Remove loading message
+        const loadingMessage = document.getElementById('loadingMessage');
+        if (loadingMessage) {
+            loadingMessage.remove();
         }
+        
+        // Return orb to normal state
+        this.deactivateOrb();
     }
     
     scrollToBottom() {
-        this.chatMessages.scrollTop = this.chatMessages.scrollHeight;
+        this.messageDisplay.scrollTop = this.messageDisplay.scrollHeight;
     }
 }
 
-// Function to ask questions from suggestion chips
+// Function to ask questions from divine question lights
 function askQuestion(question) {
-    // Find the chat input and set the value
-    const chatInput = document.getElementById('chatInput');
-    chatInput.value = question;
+    // Find the message input and set the value
+    const messageInput = document.getElementById('messageInput');
+    messageInput.value = question;
     
     // Trigger the send button
     document.getElementById('sendButton').click();
 }
 
-// Add CSS for new animations
-const dystopianStyles = document.createElement('style');
-dystopianStyles.textContent = `
-    @keyframes glitchOut {
-        0% { opacity: 1; transform: scale(1); }
-        50% { opacity: 0.5; transform: scale(1.1) skew(2deg); }
-        100% { opacity: 0; transform: scale(0.9) skew(-2deg); }
+// Add CSS for divine animations
+const divineStyles = document.createElement('style');
+divineStyles.textContent = `
+    .divine-name {
+        transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     }
     
-    @keyframes messageGlitch {
-        0%, 100% { transform: translateX(0); }
-        25% { transform: translateX(-1px); }
-        75% { transform: translateX(1px); }
+    .orb-core {
+        transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     }
     
-    @keyframes scanLineMove {
-        0% { transform: translateY(0); }
-        100% { transform: translateY(4px); }
+    .orb-glow {
+        transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     }
     
-    .typing-indicator .message-content p {
-        animation: blink 1s infinite;
+    .orb-particles {
+        transition: opacity 0.4s ease;
     }
     
-    .message-counter {
-        color: #ff00ff !important;
-        animation: pulse 2s ease-in-out infinite;
+    .ethereal-mist {
+        transition: all 0.8s ease;
     }
     
-    .tv-screen {
-        transition: all 0.3s ease;
+    .name-aura {
+        transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     }
     
-    .tv-screen.glitching {
-        filter: hue-rotate(90deg) saturate(2) contrast(1.5);
-        transform: skew(0.5deg, 0deg);
+    .message {
+        transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    
+    .divine-input {
+        transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    
+    .divine-send {
+        transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    
+    .question-light {
+        transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    
+    .divine-message-interface {
+        transition: all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    
+    .divine-presence {
+        transition: all 0.6s ease;
     }
 `;
 
-document.head.appendChild(dystopianStyles);
+document.head.appendChild(divineStyles);
 
 // Initialize everything when DOM is loaded
 document.addEventListener('DOMContentLoaded', function() {
-    // Initialize dystopian chat bot
-    const chatBot = new DystopianChatBot();
+    // Initialize divine interface
+    const divineInterface = new DivineInterface();
     
-    // Add atmospheric background effects
-    addAtmosphericEffects();
-    
-    // Add TV interaction effects
-    addTVEffects();
-    
-    // Add particle system
-    createParticleSystem();
+    // Add additional divine touches
+    addDivineTouches();
 });
 
-function addAtmosphericEffects() {
-    // Random atmospheric glitches
-    setInterval(() => {
+function addDivineTouches() {
+    // Add divine cursor interactions
+    document.addEventListener('mousemove', (e) => {
+        if (Math.random() < 0.003) {
+            const orbParticles = document.querySelector('.orb-particles');
+            if (orbParticles) {
+                orbParticles.style.opacity = '0.5';
+                setTimeout(() => {
+                    orbParticles.style.opacity = '0.4';
+                }, 300);
+            }
+        }
+    });
+    
+    // Add divine scroll interactions
+    window.addEventListener('scroll', () => {
         if (Math.random() < 0.05) {
-            document.body.style.filter = 'hue-rotate(180deg)';
-            setTimeout(() => {
-                document.body.style.filter = 'none';
-            }, 100);
-        }
-    }, 5000);
-    
-    // Add subtle screen shake on certain events
-    document.addEventListener('click', () => {
-        if (Math.random() < 0.1) {
-            document.body.style.animation = 'screenShake 0.1s ease-in-out';
-            setTimeout(() => {
-                document.body.style.animation = '';
-            }, 100);
+            const etherealMist = document.querySelector('.ethereal-mist');
+            if (etherealMist) {
+                etherealMist.style.opacity = '0.4';
+                setTimeout(() => {
+                    etherealMist.style.opacity = '0.3';
+                }, 300);
+            }
         }
     });
-}
-
-function addTVEffects() {
-    const tvFrame = document.querySelector('.tv-frame');
     
-    // Add hover effects
-    tvFrame.addEventListener('mouseenter', () => {
-        tvFrame.style.transform = 'rotateX(0deg) scale(1.02)';
-        tvFrame.style.boxShadow = '0 0 80px rgba(0, 255, 65, 0.5), inset 0 0 50px rgba(0, 0, 0, 0.8)';
-    });
-    
-    tvFrame.addEventListener('mouseleave', () => {
-        tvFrame.style.transform = 'rotateX(5deg) scale(1)';
-        tvFrame.style.boxShadow = '0 0 50px rgba(0, 255, 65, 0.3), inset 0 0 50px rgba(0, 0, 0, 0.8)';
-    });
-    
-    // Add click effects
-    tvFrame.addEventListener('click', () => {
-        tvFrame.style.animation = 'tvClick 0.2s ease-in-out';
+    // Add divine window resize effects
+    window.addEventListener('resize', () => {
+        const divineName = document.querySelector('.divine-name');
+        divineName.style.transform = 'scale(0.98)';
         setTimeout(() => {
-            tvFrame.style.animation = '';
-        }, 200);
+            divineName.style.transform = 'scale(1)';
+        }, 300);
     });
-}
-
-function createParticleSystem() {
-    const particleContainer = document.createElement('div');
-    particleContainer.className = 'particle-container';
-    particleContainer.style.cssText = `
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        pointer-events: none;
-        z-index: 1;
-    `;
     
-    document.body.appendChild(particleContainer);
-    
-    // Create floating particles
-    for (let i = 0; i < 20; i++) {
-        createParticle(particleContainer);
+    // Add divine presence to typing
+    const messageInput = document.getElementById('messageInput');
+    if (messageInput) {
+        messageInput.addEventListener('input', () => {
+            const divinePresence = document.querySelector('.divine-presence');
+            if (divinePresence && messageInput.value.length > 0) {
+                divinePresence.style.opacity = '0.9';
+                setTimeout(() => {
+                    divinePresence.style.opacity = '0.7';
+                }, 200);
+            }
+        });
     }
 }
-
-function createParticle(container) {
-    const particle = document.createElement('div');
-    particle.style.cssText = `
-        position: absolute;
-        width: 2px;
-        height: 2px;
-        background: #00ff41;
-        border-radius: 50%;
-        opacity: 0.6;
-        animation: floatParticle ${5 + Math.random() * 10}s linear infinite;
-    `;
-    
-    particle.style.left = Math.random() * 100 + '%';
-    particle.style.top = Math.random() * 100 + '%';
-    particle.style.animationDelay = Math.random() * 5 + 's';
-    
-    container.appendChild(particle);
-    
-    // Remove and recreate particle when animation ends
-    particle.addEventListener('animationend', () => {
-        particle.remove();
-        createParticle(container);
-    });
-}
-
-// Add additional CSS for new effects
-const additionalStyles = document.createElement('style');
-additionalStyles.textContent = `
-    @keyframes screenShake {
-        0%, 100% { transform: translateX(0); }
-        25% { transform: translateX(-1px); }
-        75% { transform: translateX(1px); }
-    }
-    
-    @keyframes tvClick {
-        0%, 100% { transform: rotateX(5deg) scale(1); }
-        50% { transform: rotateX(5deg) scale(0.98); }
-    }
-    
-    @keyframes floatParticle {
-        0% { 
-            transform: translateY(0) translateX(0);
-            opacity: 0.6;
-        }
-        50% { 
-            opacity: 1;
-        }
-        100% { 
-            transform: translateY(-100vh) translateX(${Math.random() * 100 - 50}px);
-            opacity: 0;
-        }
-    }
-    
-    .particle-container {
-        overflow: hidden;
-    }
-`;
-
-document.head.appendChild(additionalStyles);
