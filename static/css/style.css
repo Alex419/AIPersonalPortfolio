@@ -141,9 +141,15 @@ body {
 
 /* Divine Name - Pure Light */
 .divine-name {
-    position: relative;
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     text-align: center;
-    margin-bottom: 4rem;
+    z-index: 20;
+    /* Prevent any movement when content loads */
+    will-change: auto;
+    backface-visibility: hidden;
     animation: divineFloat 8s ease-in-out infinite;
 }
 
@@ -172,10 +178,10 @@ body {
 
 @keyframes divineFloat {
     0%, 100% { 
-        transform: translateY(0); 
+        transform: translate(-50%, -50%) translateY(10px); 
     }
     50% { 
-        transform: translateY(-20px); 
+        transform: translate(-50%, -50%) translateY(-10px); 
     }
 }
 
@@ -192,10 +198,13 @@ body {
 
 /* Divine Message Interface */
 .divine-message-interface {
-    position: relative;
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%) translateY(20px) scale(0.98);
     width: 90%;
     max-width: 800px;
-    max-height: 70vh;
+    max-height: 35vh;
     background: rgba(255, 255, 255, 0.15);
     border-radius: 30px;
     padding: 2.5rem;
@@ -206,48 +215,50 @@ body {
         0 0 0 1px rgba(255, 255, 255, 0.1) inset,
         0 0 0 4px rgba(255, 255, 255, 0.05) inset;
     opacity: 0;
-    transform: translateY(40px) scale(0.95);
-    transition: all 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transition: all 5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     animation: bubbleFloat 6s ease-in-out infinite;
     display: flex;
     flex-direction: column;
     overflow: hidden;
+    /* Prevent layout interference */
+    z-index: 10;
+    /* Ensure proper centering */
+    right: auto;
+    /* Constrain height to stay below Alex Gu */
+    top: auto;
 }
 
-.divine-message-interface.active {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-}
+/* Remove .active class - using direct opacity/transform control for zen experience */
 
 /* Enhanced bubble floating animation */
 @keyframes bubbleFloat {
     0%, 100% { 
-        transform: translateY(0) scale(1); 
+        transform: translateX(-50%) translateY(0) scale(1); 
         box-shadow: 
             0 25px 80px rgba(255, 255, 255, 0.3),
             0 0 0 1px rgba(255, 255, 255, 0.1) inset,
             0 0 0 4px rgba(255, 255, 255, 0.05) inset;
     }
     25% {
-        transform: translateY(-4px) scale(1.01);
+        transform: translateX(-50%) translateY(-1px) scale(1.005);
         box-shadow: 
-            0 28px 85px rgba(255, 255, 255, 0.35),
-            0 0 0 1px rgba(255, 255, 255, 0.12) inset,
-            0 0 0 4px rgba(255, 255, 255, 0.06) inset;
+            0 26px 82px rgba(255, 255, 255, 0.32),
+            0 0 0 1px rgba(255, 255, 255, 0.11) inset,
+            0 0 0 4px rgba(255, 255, 255, 0.055) inset;
     }
     50% { 
-        transform: translateY(-8px) scale(1.02); 
+        transform: translateX(-50%) translateY(-2px) scale(1.01); 
         box-shadow: 
-            0 30px 90px rgba(255, 255, 255, 0.4),
-            0 0 0 1px rgba(255, 255, 255, 0.15) inset,
-            0 0 0 4px rgba(255, 255, 255, 0.08) inset;
-    }
-    75% {
-        transform: translateY(-4px) scale(1.01);
-        box-shadow: 
-            0 28px 85px rgba(255, 255, 255, 0.35),
+            0 27px 85px rgba(255, 255, 255, 0.35),
             0 0 0 1px rgba(255, 255, 255, 0.12) inset,
             0 0 0 4px rgba(255, 255, 255, 0.06) inset;
+    }
+    75% {
+        transform: translateX(-50%) translateY(-1px) scale(1.005);
+        box-shadow: 
+            0 26px 82px rgba(255, 255, 255, 0.32),
+            0 0 0 1px rgba(255, 255, 255, 0.11) inset,
+            0 0 0 4px rgba(255, 255, 255, 0.055) inset;
     }
 }
 
@@ -279,7 +290,7 @@ body {
 .message-display {
     flex: 1;
     min-height: 120px;
-    max-height: 40vh;
+    max-height: 20vh;
     margin-bottom: 1.5rem;
     padding: 1.5rem;
     background: rgba(255, 255, 255, 0.1);
@@ -292,6 +303,8 @@ body {
     position: relative;
     overflow-y: auto;
     overflow-x: hidden;
+    /* Prevent layout shifts when messages appear */
+    contain: layout style paint;
 }
 
 /* Custom scrollbar for message display */
@@ -706,13 +719,10 @@ body {
     transform: translateX(-50%);
     text-align: center;
     opacity: 0.7;
-    transition: all 0.6s ease;
+    transition: all 3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-.divine-presence.fade-out {
-    opacity: 0;
-    transform: translateX(-50%) translateY(30px);
-}
+/* Remove fade-out class - using direct opacity control for zen experience */
 
 .presence-text {
     font-size: 1rem;
@@ -794,11 +804,11 @@ body {
     .divine-message-interface {
         width: 95%;
         padding: 2rem;
-        max-height: 75vh;
+        max-height: 40vh;
     }
     
     .message-display {
-        max-height: 35vh;
+        max-height: 25vh;
     }
     
     .quick-questions {
@@ -826,7 +836,7 @@ body {
     
     .divine-message-interface {
         padding: 1.5rem;
-        max-height: 80vh;
+        max-height: 45vh;
     }
     
     .message-display {

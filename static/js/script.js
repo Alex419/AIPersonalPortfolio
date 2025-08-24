@@ -31,20 +31,6 @@ class DivineInterface {
             this.messageInput.style.height = 'auto';
             this.messageInput.style.height = this.messageInput.scrollHeight + 'px';
         });
-        
-        // Start interaction when clicking anywhere
-        document.addEventListener('click', () => {
-            if (this.messageCount === 0) {
-                this.startDivineInteraction();
-            }
-        });
-        
-        // Start interaction on first input focus
-        this.messageInput.addEventListener('focus', () => {
-            if (this.messageCount === 0) {
-                this.startDivineInteraction();
-            }
-        });
     }
     
     initializeDivineInterface() {
@@ -56,6 +42,9 @@ class DivineInterface {
         
         // Add divine presence effects
         this.addDivinePresenceEffects();
+        
+        // Zen experience: immediate long fade-in over 5 seconds
+        this.startDivineInteraction();
     }
     
     addDivineNameAnimations() {
@@ -67,14 +56,6 @@ class DivineInterface {
         
         this.divineName.addEventListener('mouseleave', () => {
             this.divineName.style.transform = 'scale(1)';
-        });
-        
-        // Add divine click effect
-        this.divineName.addEventListener('click', () => {
-            this.divineName.style.transform = 'scale(0.98)';
-            setTimeout(() => {
-                this.divineName.style.transform = 'scale(1)';
-            }, 200);
         });
     }
     
@@ -101,27 +82,27 @@ class DivineInterface {
     }
     
     addDivinePresenceEffects() {
-        // Add subtle presence animations
+        // Add very subtle presence animations for zen experience
         setInterval(() => {
-            if (Math.random() < 0.1) {
-                this.divinePresence.style.opacity = '0.9';
+            if (Math.random() < 0.05) {
+                this.divinePresence.style.opacity = '0.8';
                 setTimeout(() => {
                     this.divinePresence.style.opacity = '0.7';
-                }, 300);
+                }, 400);
             }
-        }, 8000);
+        }, 12000);
         
-        // Add orb particle effects
+        // Add minimal orb particle effects
         const orbParticles = document.querySelector('.orb-particles');
         if (orbParticles) {
             setInterval(() => {
-                if (Math.random() < 0.15) {
-                    orbParticles.style.opacity = '0.6';
+                if (Math.random() < 0.08) {
+                    orbParticles.style.opacity = '0.5';
                     setTimeout(() => {
                         orbParticles.style.opacity = '0.4';
-                    }, 400);
+                    }, 500);
                 }
-            }, 6000);
+            }, 10000);
         }
     }
     
@@ -150,14 +131,23 @@ class DivineInterface {
     }
     
     startDivineInteraction() {
-        // Fade out divine presence
-        this.divinePresence.classList.add('fade-out');
+        // Start the long 5-second fade-in immediately
+        this.messageInterface.style.transition = 'all 5s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+        this.messageInterface.style.opacity = '0';
+        this.messageInterface.style.transform = 'translateX(-50%) translateY(20px) scale(0.98)';
         
-        // Show message interface with divine animation
+        // Gradually fade in the message interface
         setTimeout(() => {
-            this.messageInterface.classList.add('active');
-            
-            // Add divine welcome message
+            this.messageInterface.style.opacity = '1';
+            this.messageInterface.style.transform = 'translateX(-50%) translateY(0) scale(1)';
+        }, 100);
+        
+        // Fade out divine presence slowly
+        this.divinePresence.style.transition = 'all 3s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+        this.divinePresence.style.opacity = '0';
+        
+        // Add divine welcome message after fade-in completes
+        setTimeout(() => {
             this.addDivineMessage("I am listening. What would you like to know about my background, projects, and experience?", 'bot');
             
             // Focus on input
@@ -165,7 +155,7 @@ class DivineInterface {
             
             // Activate orb
             this.activateOrb();
-        }, 600);
+        }, 5000);
     }
     
     async sendMessage() {
@@ -277,7 +267,7 @@ class DivineInterface {
             border-radius: 30px;
         `;
         
-        messageInterface.style.position = 'relative';
+        // Don't change the position - keep it absolute for proper centering
         messageInterface.appendChild(glossySweep);
         
         // Trigger the sweep
@@ -293,11 +283,11 @@ class DivineInterface {
         }, 1100);
         
         // Add bubble bounce effect
-        messageInterface.style.transform = 'scale(1.05) translateY(-5px)';
+        messageInterface.style.transform = 'translateX(-50%) scale(1.05) translateY(-5px)';
         messageInterface.style.transition = 'transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
         
         setTimeout(() => {
-            messageInterface.style.transform = 'scale(1) translateY(0)';
+            messageInterface.style.transform = 'translateX(-50%) scale(1) translateY(0)';
         }, 600);
     }
     
@@ -455,9 +445,9 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function addDivineTouches() {
-    // Add divine cursor interactions
+    // Minimal divine cursor interactions for zen experience
     document.addEventListener('mousemove', (e) => {
-        if (Math.random() < 0.003) {
+        if (Math.random() < 0.001) {
             const orbParticles = document.querySelector('.orb-particles');
             if (orbParticles) {
                 orbParticles.style.opacity = '0.5';
@@ -468,27 +458,9 @@ function addDivineTouches() {
         }
     });
     
-    // Add divine scroll interactions
-    window.addEventListener('scroll', () => {
-        if (Math.random() < 0.05) {
-            const etherealMist = document.querySelector('.ethereal-mist');
-            if (etherealMist) {
-                etherealMist.style.opacity = '0.4';
-                setTimeout(() => {
-                    etherealMist.style.opacity = '0.3';
-                }, 300);
-            }
-        }
-    });
+    // Remove scroll interactions for zen experience
     
-    // Add divine window resize effects
-    window.addEventListener('resize', () => {
-        const divineName = document.querySelector('.divine-name');
-        divineName.style.transform = 'scale(0.98)';
-        setTimeout(() => {
-            divineName.style.transform = 'scale(1)';
-        }, 300);
-    });
+    // Remove resize effects for zen experience
     
     // Add divine presence to typing
     const messageInput = document.getElementById('messageInput');
