@@ -28,6 +28,32 @@ body {
     overflow: hidden;
 }
 
+/* Left and Right Side Containers */
+.left-side {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 40%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.right-side {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 60%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
 /* Light Orb - The Divine Presence */
 .light-orb {
     position: absolute;
@@ -141,16 +167,20 @@ body {
 
 /* Divine Name - Pure Light */
 .divine-name {
-    position: absolute;
-    top: 45%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    position: relative;
     text-align: center;
     z-index: 20;
     /* Prevent any movement when content loads */
     will-change: auto;
     backface-visibility: hidden;
     animation: divineFloat 8s ease-in-out infinite;
+    /* Ensure proper positioning for the aura */
+    display: inline-block;
+    /* Center the entire name container within the left side */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .name-light {
@@ -198,13 +228,10 @@ body {
 
 /* Divine Message Interface */
 .divine-message-interface {
-    position: absolute;
-    bottom: 2rem;
-    left: 50%;
-    transform: translateX(-50%) translateY(20px) scale(0.98);
-    width: 98%;
-    max-width: 1100px;
-    max-height: 42vh;
+    position: relative;
+    width: 95%;
+    max-width: 800px;
+    max-height: 85vh;
     background: rgba(255, 255, 255, 0.15);
     border-radius: 30px;
     padding: 3rem;
@@ -233,28 +260,28 @@ body {
 /* Enhanced bubble floating animation */
 @keyframes bubbleFloat {
     0%, 100% { 
-        transform: translateX(-50%) translateY(0) scale(1); 
+        transform: translateY(0) scale(1); 
         box-shadow: 
             0 25px 80px rgba(255, 255, 255, 0.3),
             0 0 0 1px rgba(255, 255, 255, 0.1) inset,
             0 0 0 4px rgba(255, 255, 255, 0.05) inset;
     }
     25% {
-        transform: translateX(-50%) translateY(-1px) scale(1.005);
+        transform: translateY(-1px) scale(1.005);
         box-shadow: 
             0 26px 82px rgba(255, 255, 255, 0.32),
             0 0 0 1px rgba(255, 255, 255, 0.11) inset,
             0 0 0 4px rgba(255, 255, 255, 0.055) inset;
     }
     50% { 
-        transform: translateX(-50%) translateY(-2px) scale(1.01); 
+        transform: translateY(-2px) scale(1.01); 
         box-shadow: 
             0 27px 85px rgba(255, 255, 255, 0.35),
             0 0 0 1px rgba(255, 255, 255, 0.12) inset,
             0 0 0 4px rgba(255, 255, 255, 0.06) inset;
     }
     75% {
-        transform: translateX(-50%) translateY(-1px) scale(1.005);
+        transform: translateY(-1px) scale(1.005);
         box-shadow: 
             0 26px 82px rgba(255, 255, 255, 0.32),
             0 0 0 1px rgba(255, 255, 255, 0.11) inset,
@@ -290,7 +317,7 @@ body {
 .message-display {
     flex: 1;
     min-height: 150px;
-    max-height: 28vh;
+    max-height: 60vh;
     margin-bottom: 1.5rem;
     padding: 2rem;
     background: rgba(255, 255, 255, 0.1);
@@ -713,13 +740,11 @@ body {
 
 /* Divine Presence Hint */
 .divine-presence {
-    position: absolute;
-    bottom: 4rem;
-    left: 50%;
-    transform: translateX(-50%);
+    position: relative;
     text-align: center;
     opacity: 0.7;
     transition: all 3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    margin-top: 2rem;
 }
 
 /* Remove fade-out class - using direct opacity control for zen experience */
@@ -797,6 +822,20 @@ body {
 
 /* Responsive Design */
 @media (max-width: 768px) {
+    .left-side, .right-side {
+        position: relative;
+        width: 100%;
+        height: auto;
+    }
+    
+    .left-side {
+        height: 40vh;
+    }
+    
+    .right-side {
+        height: 60vh;
+    }
+    
     .name-light {
         font-size: 3.5rem;
     }
@@ -804,11 +843,11 @@ body {
     .divine-message-interface {
         width: 99%;
         padding: 2.5rem;
-        max-height: 48vh;
+        max-height: 70vh;
     }
     
     .message-display {
-        max-height: 35vh;
+        max-height: 50vh;
     }
     
     .quick-questions {
@@ -830,17 +869,25 @@ body {
 }
 
 @media (max-width: 480px) {
+    .left-side {
+        height: 35vh;
+    }
+    
+    .right-side {
+        height: 65vh;
+    }
+    
     .name-light {
         font-size: 2.8rem;
     }
     
     .divine-message-interface {
         padding: 2rem;
-        max-height: 52vh;
+        max-height: 75vh;
     }
     
     .message-display {
-        max-height: 38vh;
+        max-height: 55vh;
         padding: 1.5rem;
     }
     

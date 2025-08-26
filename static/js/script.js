@@ -134,12 +134,12 @@ class DivineInterface {
         // Start the long 5-second fade-in immediately
         this.messageInterface.style.transition = 'all 5s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
         this.messageInterface.style.opacity = '0';
-        this.messageInterface.style.transform = 'translateX(-50%) translateY(20px) scale(0.98)';
+        this.messageInterface.style.transform = 'translateY(20px) scale(0.98)';
         
         // Gradually fade in the message interface
         setTimeout(() => {
             this.messageInterface.style.opacity = '1';
-            this.messageInterface.style.transform = 'translateX(-50%) translateY(0) scale(1)';
+            this.messageInterface.style.transform = 'translateY(0) scale(1)';
         }, 100);
         
         // Fade out divine presence slowly
@@ -283,11 +283,11 @@ class DivineInterface {
         }, 1100);
         
         // Add bubble bounce effect
-        messageInterface.style.transform = 'translateX(-50%) scale(1.05) translateY(-5px)';
+        messageInterface.style.transform = 'scale(1.05) translateY(-5px)';
         messageInterface.style.transition = 'transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
         
         setTimeout(() => {
-            messageInterface.style.transform = 'translateX(-50%) scale(1) translateY(0)';
+            messageInterface.style.transform = 'scale(1) translateY(0)';
         }, 600);
     }
     

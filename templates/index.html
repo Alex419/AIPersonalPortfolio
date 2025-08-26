@@ -21,51 +21,57 @@
 
     <!-- Divine Minimalist Interface -->
     <div class="divine-container">
-        <!-- Floating Name - Pure Light -->
-        <div class="divine-name" id="divineName">
-            <h1 class="name-light">Alex Gu</h1>
-            <div class="name-aura"></div>
+        <!-- Left Side Container -->
+        <div class="left-side">
+            <!-- Floating Name - Pure Light -->
+            <div class="divine-name" id="divineName">
+                <h1 class="name-light">Alex Gu</h1>
+                <div class="name-aura"></div>
+            </div>
         </div>
         
-        <!-- Divine Message Interface -->
-        <div class="divine-message-interface" id="messageInterface">
-            <!-- Message Display -->
-            <div class="message-display" id="messageDisplay">
-                <!-- Welcome message will appear here -->
-            </div>
-            
-            <!-- Divine Input Section -->
-            <div class="input-section">
-                <div class="input-container">
-                    <input type="text" id="messageInput" placeholder="Ask me anything..." class="divine-input">
-                    <button id="sendButton" class="divine-send">
-                        <i class="fas fa-arrow-up"></i>
-                    </button>
+        <!-- Right Side Container -->
+        <div class="right-side">
+            <!-- Divine Message Interface -->
+            <div class="divine-message-interface" id="messageInterface">
+                <!-- Message Display -->
+                <div class="message-display" id="messageDisplay">
+                    <!-- Welcome message will appear here -->
                 </div>
                 
-                <!-- Divine Quick Questions -->
-                <div class="quick-questions">
-                    <button class="question-light" onclick="askQuestion('Tell me about your recent projects')">
-                        Recent Projects
-                    </button>
-                    <button class="question-light" onclick="askQuestion('What are your technical skills?')">
-                        Technical Skills
-                    </button>
-                    <button class="question-light" onclick="askQuestion('Tell me about your leadership experience')">
-                        Leadership
-                    </button>
-                    <button class="question-light" onclick="askQuestion('What are you studying at Columbia?')">
-                        Columbia Studies
-                    </button>
+                <!-- Divine Input Section -->
+                <div class="input-section">
+                    <div class="input-container">
+                        <input type="text" id="messageInput" placeholder="Ask me anything..." class="divine-input">
+                        <button id="sendButton" class="divine-send">
+                            <i class="fas fa-arrow-up"></i>
+                        </button>
+                    </div>
+                    
+                    <!-- Divine Quick Questions -->
+                    <div class="quick-questions">
+                        <button class="question-light" onclick="askQuestion('Tell me about your recent projects')">
+                            Recent Projects
+                        </button>
+                        <button class="question-light" onclick="askQuestion('What are your technical skills?')">
+                            Technical Skills
+                        </button>
+                        <button class="question-light" onclick="askQuestion('Tell me about your leadership experience')">
+                            Leadership
+                        </button>
+                        <button class="question-light" onclick="askQuestion('What are you studying at Columbia?')">
+                            Columbia Studies
+                        </button>
+                    </div>
                 </div>
             </div>
-        </div>
-        
-        <!-- Divine Presence Hint -->
-        <div class="divine-presence" id="divinePresence">
-            <div class="presence-text">I am listening</div>
-            <div class="presence-indicator">
-                <div class="indicator-light"></div>
+            
+            <!-- Divine Presence Hint -->
+            <div class="divine-presence" id="divinePresence">
+                <div class="presence-text">I am listening</div>
+                <div class="presence-indicator">
+                    <div class="indicator-light"></div>
+                </div>
             </div>
         </div>
     </div>
