@@ -64,6 +64,7 @@ body {
     width: 100%;
     padding: 2rem 0;
     position: relative;
+    text-align: center;
 }
 
 .bottom-half {
@@ -269,7 +270,10 @@ body {
 
 /* Divine Name - Pure Light */
 .divine-name {
-    position: relative;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     text-align: center;
     z-index: 20;
     /* Prevent any movement when content loads */
