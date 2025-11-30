@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alex Gu - Portfolio</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/simple.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1 class="name">Alex Gu</h1>
+            <p class="tagline">Graduate Student at Columbia University | AI/ML Focus</p>
+            <p class="contact">ag5174@columbia.edu</p>
+            <p class="notice">The AI Portfolio piece is currently under work and will be reimplemented as soon as possible. For now, you can read about the different experiences that the model is built on.</p>
+        </header>
+
+        <!-- Main Content Grid -->
+        <main class="main-content">
+            <!-- About Section -->
+            <section class="category-section" id="about">
+                <h2 class="category-title">About Me</h2>
+                <div class="cards-grid" id="about-cards"></div>
+            </section>
+
+            <!-- Education Section -->
+            <section class="category-section" id="education">
+                <h2 class="category-title">Education</h2>
+                <div class="cards-grid" id="education-cards"></div>
+            </section>
+
+            <!-- Experience Section -->
+            <section class="category-section" id="experience">
+                <h2 class="category-title">Experience</h2>
+                <div class="cards-grid" id="experience-cards"></div>
+            </section>
+
+            <!-- Projects Section -->
+            <section class="category-section" id="projects">
+                <h2 class="category-title">Projects</h2>
+                <div class="cards-grid" id="projects-cards"></div>
+            </section>
+
+            <!-- Skills Section -->
+            <section class="category-section" id="skills">
+                <h2 class="category-title">Skills</h2>
+                <div class="cards-grid" id="skills-cards"></div>
+            </section>
+
+            <!-- Leadership Section -->
+            <section class="category-section" id="leadership">
+                <h2 class="category-title">Leadership</h2>
+                <div class="cards-grid" id="leadership-cards"></div>
+            </section>
+
+            <!-- Extracurriculars Section -->
+            <section class="category-section" id="extracurriculars">
+                <h2 class="category-title">Extracurriculars</h2>
+                <div class="cards-grid" id="extracurriculars-cards"></div>
+            </section>
+
+            <!-- Hobbies Section -->
+            <section class="category-section" id="hobbies">
+                <h2 class="category-title">Hobbies</h2>
+                <div class="cards-grid" id="hobbies-cards"></div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Modal for displaying content -->
+    <div class="modal" id="contentModal">
+        <div class="modal-content">
+            <button class="modal-close" id="modalClose">&times;</button>
+            <div class="modal-header">
+                <h2 id="modalTitle"></h2>
+            </div>
+            <div class="modal-body" id="modalBody"></div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/simple.js') }}"></script>
+</body>
+</html>
