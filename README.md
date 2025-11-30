@@ -175,11 +175,10 @@ This is a personal portfolio project, but suggestions and improvements are welco
 
 This project is licensed under the MIT License - see the LICENSE file for details.
 
-## 📞 Contact
+## Contact
 
-- **Alex Gu**: [Your contact information]
-- **LinkedIn**: [Your LinkedIn]
-- **GitHub**: [Your GitHub]
+- **Alex Gu**: ag5174@columbia.edu
+- **LinkedIn**: https://www.linkedin.com/in/alex-gu-447288234/
 
 ---
 
