@@ -5,7 +5,12 @@ from pathlib import Path
 app = Flask(__name__)
 
 # Check if we should use simple mode
-USE_SIMPLE_MODE = os.environ.get('USE_SIMPLE_MODE', 'false').lower() == 'true'
+# Default to simple mode (can be overridden with USE_SIMPLE_MODE=false)
+USE_SIMPLE_MODE = os.environ.get('USE_SIMPLE_MODE', 'true').lower() == 'true'
+
+# Log the mode for debugging
+print(f"USE_SIMPLE_MODE environment variable: {os.environ.get('USE_SIMPLE_MODE', 'not set (defaulting to true)')}")
+print(f"Using simple mode: {USE_SIMPLE_MODE}")
 
 # Initialize the bot only if not in simple mode
 bot = None
@@ -13,10 +18,13 @@ if not USE_SIMPLE_MODE:
     try:
         from query_bot import AlexGuBot
         bot = AlexGuBot()
+        print("RAG bot initialized successfully")
     except Exception as e:
         print(f"Warning: Could not initialize bot: {e}")
         print("Falling back to simple mode")
         USE_SIMPLE_MODE = True
+else:
+    print("Simple mode enabled - skipping RAG bot initialization")
 
 # Data directory path
 DATA_DIR = Path(__file__).parent / 'data'
